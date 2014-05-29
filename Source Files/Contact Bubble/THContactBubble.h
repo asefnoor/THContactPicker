@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-#import "THBubbleStyle.h"
+#import "THBubbleColor.h"
 
 @class THContactBubble;
 
@@ -20,22 +20,22 @@
 
 @end
 
-@interface THContactBubble : UIView <UITextViewDelegate, UITextInputTraits>
+@interface THContactBubble : UIView <UITextViewDelegate>
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) UILabel *label;
 @property (nonatomic, strong) UITextView *textView; // used to capture keyboard touches when view is selected
 @property (nonatomic, assign) BOOL isSelected;
-@property (nonatomic, assign) BOOL showComma;
 @property (nonatomic, assign) id <THContactBubbleDelegate>delegate;
 @property (nonatomic, strong) CAGradientLayer *gradientLayer;
 
-@property (nonatomic, strong) THBubbleStyle *style;
-@property (nonatomic, strong) THBubbleStyle *selectedStyle;
+@property (nonatomic, strong) THBubbleColor *color;
+@property (nonatomic, strong) THBubbleColor *selectedColor;
 
 - (id)initWithName:(NSString *)name;
-- (id)initWithName:(NSString *)name style:(THBubbleStyle *)style selectedStyle:(THBubbleStyle *)selectedStyle;
-- (id)initWithName:(NSString *)name style:(THBubbleStyle *)style selectedStyle:(THBubbleStyle *)selectedStyle showComma:(BOOL)showComma;
+- (id)initWithName:(NSString *)name
+             color:(THBubbleColor *)color
+     selectedColor:(THBubbleColor *)selectedColor;
 
 - (void)select;
 - (void)unSelect;

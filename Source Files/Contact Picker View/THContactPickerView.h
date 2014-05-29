@@ -19,23 +19,21 @@
 
 @end
 
-@interface THContactPickerView : UIView <UITextViewDelegate, THContactBubbleDelegate, UIScrollViewDelegate, UITextInputTraits>
+@interface THContactPickerView : UIView <UITextViewDelegate, THContactBubbleDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, strong) THContactBubble *selectedContactBubble;
-@property (nonatomic, assign) IBOutlet id <THContactPickerDelegate>delegate;
+@property (nonatomic, assign) IBOutlet id <THContactPickerDelegate> delegate;
 @property (nonatomic, assign) BOOL limitToOne;
-@property (nonatomic, assign) CGFloat verticalPadding;
+@property (nonatomic, assign) CGFloat viewPadding;
 @property (nonatomic, strong) UIFont *font;
 
 - (void)addContact:(id)contact withName:(NSString *)name;
 - (void)removeContact:(id)contact;
 - (void)removeAllContacts;
-- (void)resignFirstResponder;
-
-// View Customization
-- (void)setBubbleStyle:(THBubbleStyle *)color selectedStyle:(THBubbleStyle *)selectedColor;
-- (void)setPlaceholderLabelText:(NSString *)text;
-- (void)setPromptLabelText:(NSString *)text;
-- (void)setFont:(UIFont *)font;
+- (void)setPlaceholderString:(NSString *)placeholderString;
+- (void)disableDropShadow;
+- (void)resignKeyboard;
+- (void)setBubbleColor:(THBubbleColor *)color selectedColor:(THBubbleColor *)selectedColor;
+- (void)removeEmailText;
 
 @end
